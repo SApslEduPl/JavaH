@@ -33,7 +33,7 @@ public class pro1 {
 				}
 			}
 		}
-		for(i = 9, koniec = true;(i >=0)&&(koniec); i--) {
+		for(i = 5, koniec = true;(i >=0)&&(koniec); i--) {
 			for(j = 0; j<tab.length;j++) {
 				if(tab[j]==i) {
 					c3=tab[j]+"";
@@ -51,7 +51,7 @@ public class pro1 {
 				}
 			}
 		}
-		if((c1=="brak")||(c2=="brak")) {
+		if((c1=="brak")||(c2=="brak")||(c3=="brak")) {
 			System.out.println("Z podanych cyfr nie da sie utworzyc godziny.");
 		}
 		else {
