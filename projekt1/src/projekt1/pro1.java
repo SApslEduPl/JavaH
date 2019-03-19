@@ -61,7 +61,7 @@ public class pro1 {
 	
 	public static void main(String[] args) {
 		
-		Oblicz(4, 3, 2, 1);
+		Oblicz(9, 9, 2, 1);
 	}
 
 }
