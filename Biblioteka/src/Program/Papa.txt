@@ -1,0 +1,4 @@
+id,imie,nazwisko,k1,k2,k3,k4
+u1,Jan,Kowalski,0,0,0,0
+u2,Maciej,Nowak,0,0,0,0
+u3,Stefan,Nowakowski,0,0,0,0
