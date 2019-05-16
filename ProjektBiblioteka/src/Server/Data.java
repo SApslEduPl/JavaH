@@ -35,14 +35,27 @@ public class Data {
 		return dane;
     }
 	public static void Dodawanie(String[] dane) throws IOException {
-		String[][] Lista = Wypis();
-		int i, n=Lista.length, pom;
-		PrintWriter zapis = new PrintWriter("Books.csv");
-		pom = Integer.parseInt(Lista[n-1][0].substring(1));
-		for(i=0;i<n;i++) {
-			zapis.println(Lista[i][0]+","+Lista[i][1]+","+Lista[i][2]+","+Lista[i][3]+","+Lista[i][4]+","+Lista[i][5]+";");
+			String[][] Lista = Wypis();
+			int i, n=Lista.length, pom;
+			PrintWriter zapis = new PrintWriter("Books.csv");
+			pom = Integer.parseInt(Lista[n-1][0].substring(1));
+			for(i=0;i<n;i++) {
+				zapis.println(Lista[i][0]+","+Lista[i][1]+","+Lista[i][2]+","+Lista[i][3]+","+Lista[i][4]+","+Lista[i][5]+";");
+			}
+			zapis.println("b"+(pom+1)+","+dane[0]+","+dane[1]+","+dane[2]+","+dane[3]+","+dane[4]+";");
+	        zapis.close();
+	}
+	public static void Usuwanie(String dane) throws IOException {
+		if(dane.isEmpty()){
+			String[][] Lista = Wypis();
+			int i, n=Lista.length;
+			PrintWriter zapis = new PrintWriter("Books.csv");
+			for(i=0;i<n;i++) {
+				if(!dane.contentEquals(Lista[i][0])){
+					zapis.println(Lista[i][0]+","+Lista[i][1]+","+Lista[i][2]+","+Lista[i][3]+","+Lista[i][4]+","+Lista[i][5]+";");
+				}
+			}
+	        zapis.close();
 		}
-		zapis.println("a"+(pom+1)+","+dane[0]+","+dane[1]+","+dane[2]+","+dane[3]+","+dane[4]+";");
-        zapis.close();
 	}
 }

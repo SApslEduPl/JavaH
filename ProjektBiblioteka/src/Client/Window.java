@@ -22,6 +22,7 @@ public class Window {
 		JButton reAuthor = new JButton("Usun autora");
 		JButton showBooks = new JButton("Pokaz ksiazki");
 		JButton showAuthors = new JButton("Pokaz autorow");
+		JButton reShow = new JButton("Odswiez dane");
 		JTable tableBooks = new JTable(dataBooks, colNameBooks);
 		JTable tableAuthors = new JTable(dataAuthors, colNameAuthors);
 		JScrollPane panelTableBooks = new JScrollPane(tableBooks);
@@ -33,7 +34,8 @@ public class Window {
 		addAuthor.setBounds(650,150,120,30);
 		reAuthor.setBounds(650,200,120,30);
 		showBooks.setBounds(650,250,120,30);
-		showAuthors.setBounds(650,300,120,30); 
+		showAuthors.setBounds(650,300,120,30);
+		reShow.setBounds(650,350,120,30); 
 		panelTableBooks.setBounds(20, 50, 625, 450);
 		panelTableAuthors.setBounds(20, 50, 625, 450);
 		jpanel.add(addBook);
@@ -42,6 +44,7 @@ public class Window {
 		jpanel.add(reAuthor);
 		jpanel.add(showBooks);
 		jpanel.add(showAuthors);
+		jpanel.add(reShow);
 		jpanel.add(panelTableBooks);
 		frame.add(jpanel);
 		addBook.addActionListener(new ActionListener() {
@@ -78,6 +81,12 @@ public class Window {
 	                    "Podaj id ksiazki:\n",
 	                    "Usuwanie Ksiazki",
 	                    JOptionPane.PLAIN_MESSAGE);
+				try {
+					Server.Data.Usuwanie(reB);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		addAuthor.addActionListener(new ActionListener() {
@@ -109,6 +118,12 @@ public class Window {
 	                    "Podaj id autora:\n",
 	                    "Usuwanie Autora",
 	                    JOptionPane.PLAIN_MESSAGE);
+				try {
+					Server.Authors.Usuwanie(reA);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		showBooks.addActionListener(new ActionListener() {
@@ -125,6 +140,12 @@ public class Window {
 				jpanel.remove(panelTableBooks);
 				jpanel.add(panelTableAuthors);
 				frame.add(jpanel);
+			}
+		});
+		reShow.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
